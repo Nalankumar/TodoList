@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 
-@Document(collection = "Todos")
+@Document(collection = "Todo")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

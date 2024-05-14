@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TodoRepository extends MongoRepository<Todo, ObjectId>{
-    Optional<Todo> findByTodoId(String id);
+    Optional<Todo> findById(String id);
 }

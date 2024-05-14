@@ -18,6 +18,6 @@ public class TodoController {
     }
 
     public Optional<Todo> findByTodoId(String id){
-        return todoService.findByTodoId(id);
+        return todoService.findById(id);
     }
 }

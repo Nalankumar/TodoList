@@ -17,7 +17,7 @@ public class TodoService {
         return  todoRepository.findAll();
     }
 
-    public Optional<Todo> findByTodoId(String id){
-        return todoRepository.findByTodoId(id);
+    public Optional<Todo> findById(String id){
+        return todoRepository.findById(id);
     }
 }
