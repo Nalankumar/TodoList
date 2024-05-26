@@ -14,10 +14,14 @@ public class TodoService {
     @Autowired
     TodoRepository todoRepository;
     public List<Todo> getAllTasks(){
-        return  todoRepository.findAll();
+        return todoRepository.findAll();
     }
 
     public Optional<Todo> findById(String id){
         return todoRepository.findById(id);
+    }
+
+    public Todo insertTodo(Todo todo){
+        return todoRepository.insert(todo);
     }
 }
