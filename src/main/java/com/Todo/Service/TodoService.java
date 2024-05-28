@@ -1,5 +1,6 @@
 package com.Todo.Service;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,19 @@ public class TodoService {
         return todoRepository.findById(id);
     }
 
+    @SuppressWarnings("null")
     public Todo insertTodo(Todo todo){
         return todoRepository.insert(todo);
+    }
+
+    @SuppressWarnings("null")
+    public Todo markAsCompleted(Todo todo){
+        return todoRepository.save(null);
+    }
+
+    @SuppressWarnings("null")
+    public Void removebyId(ObjectId todoId){    
+        todoRepository.deleteById(todoId);
+        return null;
     }
 }
