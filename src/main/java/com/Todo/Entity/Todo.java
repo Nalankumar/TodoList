@@ -27,4 +27,8 @@ public class Todo {
     public boolean getStatus(){
         return this.status;
     }
+
+    public boolean getImportant(){
+        return this.important;
+    }
 }

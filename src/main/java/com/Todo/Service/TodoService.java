@@ -49,4 +49,21 @@ public class TodoService {
         todoRepository.deleteById(todoId);
         return null;
     }
+
+    @SuppressWarnings("null")
+    public Todo markAsFavorite(String id, Todo todo){
+        Todo t = null;
+        Optional<Todo> todoOptional = todoRepository.findById(id);
+        if(todoOptional.isPresent()){
+            t = todoOptional.get();
+            boolean bval = t.getImportant();
+            if(bval){
+                t.setImportant(false);
+            }else{
+                t.setImportant(true);
+            }
+            
+        }
+        return todoRepository.save(t);
+    }
 }

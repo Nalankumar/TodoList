@@ -43,6 +43,11 @@ public class TodoController {
         return new ResponseEntity<>(todoService.markAsCompleted(id ,todo), HttpStatus.NO_CONTENT);
     }
 
+    @PutMapping("/markAsFavorite/{id}")
+    public ResponseEntity<Todo> markAsFavorite(@PathVariable("id") String id,@RequestBody Todo todo){
+        return new ResponseEntity<>(todoService.markAsFavorite(id ,todo), HttpStatus.NO_CONTENT);
+    }
+
     @DeleteMapping("/removebyId/{todoId}")
     public ResponseEntity<Optional<Todo>> removebyId(@PathVariable ObjectId todoId){
         return new ResponseEntity<>(todoService.removebyId(todoId), HttpStatus.NO_CONTENT);
