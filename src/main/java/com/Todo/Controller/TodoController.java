@@ -22,6 +22,7 @@ import com.Todo.Entity.Todo;
 public class TodoController {
     @Autowired
     TodoService todoService;
+    
     @GetMapping("/all")
     public List<Todo> getAllTasks(){
         return todoService.getAllTasks();
@@ -37,13 +38,13 @@ public class TodoController {
         return new ResponseEntity<>(todoService.insertTodo(todo), HttpStatus.CREATED);
     }
 
-    @PutMapping("/markAsCompleted")
-    public ResponseEntity<Todo> markAsCompleted(@RequestBody Todo todo){
-        return new ResponseEntity<>(todoService.markAsCompleted(todo), HttpStatus.NO_CONTENT);
+    @PutMapping("/markAsCompleted/{id}")
+    public ResponseEntity<Todo> markAsCompleted(@PathVariable("id") String id,@RequestBody Todo todo){
+        return new ResponseEntity<>(todoService.markAsCompleted(id ,todo), HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping("/removebyId/{todoId}")
-    public ResponseEntity<Void> removebyId(@PathVariable ObjectId todoId){
-        return new ResponseEntity<>((Void)todoService.removebyId(todoId), HttpStatus.NO_CONTENT);
+    public ResponseEntity<Optional<Todo>> removebyId(@PathVariable ObjectId todoId){
+        return new ResponseEntity<>(todoService.removebyId(todoId), HttpStatus.NO_CONTENT);
     }
 }

@@ -23,4 +23,8 @@ public class Todo {
     private boolean important;
     @DocumentReference
     private List<Todo> tasks;
+
+    public boolean getStatus(){
+        return this.status;
+    }
 }
